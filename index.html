@@ -35,15 +35,143 @@
 
 
 
+
+    /* ── HERO TWO COLUMN ─────────────────────────── */
+    .hero-two-col {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      width: 100%;
+      max-width: 980px;
+      margin: auto;
+      margin-top: -40px;
+      padding: 0 40px;
+      flex: 1;
+    }
+
+    .hero-left {
+      flex: 1.1;
+    }
+
+    .hero-right {
+      flex: 0.9;
+    }
+
+    .hero-cta-box {
+      background: rgba(6, 9, 14, 0.82);
+      border: 0.5px solid rgba(93,184,102,0.25);
+      border-radius: 12px;
+      padding: 28px 28px 22px;
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-cta-head {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #f0f2f5;
+      letter-spacing: 0.01em;
+      margin-bottom: 10px;
+    }
+
+    .hero-cta-desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    .hero-form-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .hero-email-input {
+      width: 100%;
+      height: 46px;
+      background: rgba(255,255,255,0.05);
+      border: 0.5px solid rgba(93,184,102,0.3);
+      border-radius: 8px;
+      padding: 0 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: #f0f2f5;
+      outline: none;
+      transition: border-color 0.2s;
+      box-sizing: border-box;
+    }
+
+    .hero-email-input::placeholder { color: #253040; }
+    .hero-email-input:focus { border-color: rgba(93,184,102,0.6); }
+    .hero-email-input.error { border-color: rgba(220,70,60,0.6); }
+
+    .hero-submit-btn {
+      width: 100%;
+      height: 46px;
+      background: var(--green);
+      border: none;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: #06090e;
+      cursor: pointer;
+      letter-spacing: 0.01em;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .hero-submit-btn:hover { background: var(--green-light); }
+    .hero-submit-btn:active { transform: scale(0.98); }
+    .hero-submit-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+
+    .hero-fine-print {
+      font-size: 11px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.02em;
+      text-align: center;
+    }
+
+    .hero-success-msg {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      background: rgba(93,184,102,0.08);
+      border: 0.5px solid rgba(93,184,102,0.3);
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 700px) {
+      .hero-two-col {
+        flex-direction: column;
+        gap: 32px;
+        transform: translate(-50%, -50%);
+        padding: 0 20px;
+      }
+      .hero-left, .hero-right { width: 100%; flex: none; }
+    }
+
     /* ── STATIC WAVE ─────────────────────────────── */
     .hero-wave-svg {
       position: absolute;
-      bottom: 0;
+      bottom: -20px;
       left: 0;
       width: 100%;
-      height: 300px;
+      height: 220px;
       z-index: 1;
       pointer-events: none;
+      opacity: 0.85;
     }
 
     /* ── HERO NAVBAR ─────────────────────────────── */
@@ -56,7 +184,7 @@
       display: flex;
       align-items: center;
       gap: 20px;
-      padding: 28px 40px;
+      padding: 12px 40px;
     }
 
     .hero-logo-img {
@@ -100,12 +228,11 @@
       width: 100%;
       height: 100vh;
       min-height: 600px;
-      max-height: 960px;
+      max-height: 860px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      align-items: stretch;
       background: #06090e;
     }
 
@@ -131,7 +258,7 @@
     /* Scroll indicator */
     .scroll-hint {
       position: absolute;
-      bottom: 28px;
+      bottom: 16px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 2;
@@ -542,17 +669,49 @@
     </div>
 
 
-    <!-- What we're building — overlaid on hero image -->
-    <div class="hero-statement">
-      <div class="hero-stmt-eyebrow">
-        <div class="hero-stmt-line"></div>
-        What we're building
-        <div class="hero-stmt-line"></div>
+    <!-- Two column hero: left = statement, right = email capture -->
+    <div class="hero-two-col">
+
+      <!-- LEFT: What we're building -->
+      <div class="hero-left">
+        <div class="hero-stmt-eyebrow">
+          <div class="hero-stmt-line"></div>
+          What we're building
+        </div>
+        <h2 class="hero-stmt-title">Options flow intelligence<br>built for retail traders</h2>
+        <p class="hero-stmt-body">
+          FlowTrendAI decodes institutional order flow, unusual options activity, and sector momentum — delivered in a format you can actually trade from. No noise. Just the signals that matter.
+        </p>
       </div>
-      <h2 class="hero-stmt-title">Options flow intelligence<br>built for retail traders</h2>
-      <p class="hero-stmt-body">
-        FlowTrendAI decodes institutional order flow, unusual options activity, and sector momentum — and delivers it in a format you can actually trade from. No noise. Just the signals that matter.
-      </p>
+
+      <!-- RIGHT: Email capture -->
+      <div class="hero-right">
+        <div class="hero-cta-box">
+          <div class="hero-cta-head">Get the daily market brief — free</div>
+          <p class="hero-cta-desc">One concise email every trading day. Options flow summary, key levels, and what to watch. No noise, no spam — just signal.</p>
+
+          <div class="hero-success-msg" id="successMsg">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <circle cx="8" cy="8" r="7" stroke="#4db870" stroke-width="1.2"/>
+              <polyline points="5,8.5 7,10.5 11,6" stroke="#4db870" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            You're on the list. First brief arrives before launch.
+          </div>
+
+          <div class="hero-form-row" id="formRow">
+            <input
+              class="hero-email-input"
+              type="email"
+              id="emailInput"
+              placeholder="your@email.com"
+              autocomplete="email"
+            />
+            <button class="hero-submit-btn" onclick="handleSubscribe()">Subscribe free</button>
+          </div>
+          <p class="hero-fine-print">No spam. Unsubscribe anytime. We don't sell your data.</p>
+        </div>
+      </div>
+
     </div>
 
     <div class="scroll-hint">
@@ -584,30 +743,7 @@
     </div>
 
     <!-- Email CTA -->
-    <div class="cta-head">Get the daily market brief — free</div>
-    <div class="cta-desc">
-      One concise email every trading day. Options flow summary, key levels, and what to watch. No noise, no spam — just signal.
-    </div>
 
-    <div class="success-msg" id="successMsg">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <circle cx="8" cy="8" r="7" stroke="#5db866" stroke-width="1.2"/>
-        <polyline points="5,8.5 7,10.5 11,6" stroke="#5db866" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      You're on the list. First brief arrives before launch.
-    </div>
-
-    <div class="form-row" id="formRow">
-      <input
-        class="email-input"
-        type="email"
-        id="emailInput"
-        placeholder="your@email.com"
-        autocomplete="email"
-      />
-      <button class="submit-btn" onclick="handleSubscribe()">Subscribe free</button>
-    </div>
-    <p class="fine-print">No spam. Unsubscribe anytime. We don't sell your data.</p>
 
         <div class="disclaimer">
       <strong>Disclaimer:</strong> The daily market brief and all content provided by FlowTrendAI is for informational and educational purposes only. It does not constitute investment advice, a solicitation, or a recommendation to buy or sell any security or financial instrument. Options trading involves significant risk and is not suitable for all investors. Past performance is not indicative of future results. Always conduct your own due diligence and consult a licensed financial advisor before making any investment decisions. FlowTrendAI and its affiliates accept no liability for any losses incurred as a result of information provided.
@@ -623,7 +759,7 @@
     // ── LAMBDA ENDPOINT ─────────────────────────────────────────────────────
     // After running deploy.sh, replace this URL with your actual Lambda URL
     // Format: https://XXXXXX.execute-api.us-east-1.amazonaws.com/prod/subscribe
-    var LAMBDA_URL = 'https://frzruwyayl.execute-api.us-east-1.amazonaws.com/prod/subscribe';
+    var LAMBDA_URL = 'REPLACE_WITH_YOUR_LAMBDA_URL';
 
     async function handleSubscribe() {
       var input = document.getElementById('emailInput');
