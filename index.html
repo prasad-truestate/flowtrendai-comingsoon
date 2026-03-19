@@ -23,7 +23,7 @@
       --text-faint: #2a3542;
     }
 
-    html, body { height: 100%; }
+    html, body { height: 100%; overflow-x: hidden; }
 
     body {
       font-family: 'Inter', sans-serif;
@@ -35,6 +35,15 @@
 
 
 
+
+    @media (max-width: 700px) {
+      .hero {
+        height: auto !important;
+        min-height: 100svh;
+        max-height: none !important;
+        padding-bottom: 180px;
+      }
+    }
 
     /* ── HERO TWO COLUMN ─────────────────────────── */
     .hero-two-col {
@@ -155,11 +164,41 @@
     @media (max-width: 700px) {
       .hero-two-col {
         flex-direction: column;
-        gap: 32px;
-        transform: translate(-50%, -50%);
+        gap: 24px;
+        margin-top: 0 !important;
         padding: 0 20px;
+        width: 100%;
       }
-      .hero-left, .hero-right { width: 100%; flex: none; }
+      .hero-left, .hero-right {
+        width: 100%;
+        flex: none;
+      }
+      .hero-cta-box {
+        padding: 20px 16px 16px;
+      }
+      .hero-stmt-title {
+        font-size: clamp(26px, 7vw, 42px) !important;
+      }
+      .caption-banner {
+        padding: 64px 16px 0 !important;
+      }
+      .caption-text {
+        font-size: 12px !important;
+        white-space: normal !important;
+        text-align: center;
+      }
+      .hero-navbar {
+        padding: 10px 16px !important;
+      }
+      .hero-logo-img img {
+        height: 40px !important;
+      }
+      .hero-coming-soon {
+        font-size: 9px !important;
+        padding: 4px 8px !important;
+        white-space: nowrap;
+      }
+      .hero-launch-sep { display: none; }
     }
 
     /* ── STATIC WAVE ─────────────────────────────── */
@@ -581,6 +620,7 @@
     /* ── RESPONSIVE ──────────────────────────────── */
     @media (max-width: 520px) {
       .features { grid-template-columns: 1fr; }
+      .content { padding: 32px 16px 48px; }
       .form-row { flex-direction: column; }
       .submit-btn { width: 100%; }
       .content { padding: 48px 20px 60px; }
@@ -632,7 +672,11 @@
     .pdf-preview-frame iframe { width:100%; height:100%; border:none; }
     .pdf-download-link { display:inline-flex; align-items:center; gap:6px; margin-top:10px; font-size:11px; color:var(--green); text-decoration:none; letter-spacing:0.04em; opacity:0.75; transition:opacity 0.2s; }
     .pdf-download-link:hover { opacity:1; }
-    @media (max-width:700px) { .content-two-col{grid-template-columns:1fr;} .pdf-preview-frame{height:360px;} }
+    @media (max-width:700px) {
+      .content-two-col { grid-template-columns: 1fr; }
+      .pdf-preview-frame { height: 360px; }
+      .content { padding: 32px 16px 48px; }
+    }
 
   </style>
 </head>
@@ -695,7 +739,7 @@
               <circle cx="8" cy="8" r="7" stroke="#4db870" stroke-width="1.2"/>
               <polyline points="5,8.5 7,10.5 11,6" stroke="#4db870" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            You're on the list. First brief arrives before launch.
+            You're on the list. First brief arrives tomorrow.
           </div>
 
           <div class="hero-form-row" id="formRow">
